@@ -9,27 +9,31 @@ import java.util.Scanner;
 
 public class Registration {
 
-    public static void registration() {
+
+//   static ArrayList<String> name = new ArrayList<>();
+
+    public static void registration(ArrayList<String> users) {
         Scanner sc = new Scanner(System.in);
         User user = new User();
+
         System.out.print("Введите Ваш ник, которое будет использоваться в чате: ");
         user.setName(sc.nextLine());
-        List<String> name = new ArrayList<>();
-        for (String s : name) {
-            if (!(name.contains(user.getName()))) {
-                name.add(user.getName());
-                System.out.println("Пользователь успешно зарегистрован");
-            } else {
 
-            }
+        String name = user.getName();
+
+        checkName(users, name);
         }
-//        try {
-//            List
-//            if (map.containsKey(chat.getName())) {
-//                throw new Exception();
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Имя пользователя занято");
-//        }
+        public static void checkName(ArrayList<String> name, String n) {
+
+        if (name.contains(n)) {
+            System.out.println("Имя пользователя занято");
+            registration(name);
+        }
+        else {
+            name.add(n);
+            System.out.println("Имя пользователя " + n + " успешно зарегистрировано");
+        }
     }
+
+
 }
